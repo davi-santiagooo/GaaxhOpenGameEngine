@@ -13,6 +13,9 @@ import vulkan_hpp;
 #define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
 
+/* Standard */
+#include <map>
+
 /* Internal */
 #include "GogeVkApi.hpp"
 
@@ -21,17 +24,15 @@ constexpr uint32_t HEIGHT = 600;
 
 class VulkanApp {
 public:
-    void run() {
-        initWindow();
-        initVulkan();
-        mainLoop();
-        cleanup();
-    }
+    void run();
+    void setPhysicalDevice();
+    void pickPhysicalDevice();
 
 private:
     vk::raii::Context context;
     vk::raii::Instance instance = nullptr;
     GLFWwindow* window;
+    vk::raii::PhysicalDevice physicalDevice = nullptr;
 
 
     /* Main Vulkan Loop */
@@ -43,6 +44,7 @@ private:
     /* Functions */
     void createInstance();
     std::vector<const char*> getRequiredInstanceExtensions();
+    bool isDeviceSuitable(vk::raii::PhysicalDevice const& device);
     GLFWwindow* getWindow();
 };
 
