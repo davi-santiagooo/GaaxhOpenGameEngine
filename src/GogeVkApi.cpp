@@ -1,9 +1,8 @@
 #include "GogeVkApi.hpp"
-#include "vulkan/vulkan.hpp"
-#include <cstdint>
-#include <stdexcept>
-#include <utility>
-#include <vulkan/vulkan_raii.hpp>
+
+
+/* Standard */
+#include <map>
 
 
 /* Validation Layers */

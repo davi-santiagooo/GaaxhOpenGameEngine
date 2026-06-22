@@ -13,9 +13,6 @@ import vulkan_hpp;
 #define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
 
-/* Standard */
-#include <map>
-
 /* Internal */
 #include "GogeVkApi.hpp"
 
